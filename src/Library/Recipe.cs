@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections;
+using System.Text;
 
 namespace Full_GRASP_And_SOLID.Library
 {
@@ -33,6 +34,16 @@ namespace Full_GRASP_And_SOLID.Library
                 Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
                     $"usando '{step.Equipment.Description}' durante {step.Time}");
             }
+        }
+
+        public string BuildRecipe() {
+            StringBuilder stringbuilder = new StringBuilder($"Receta: ");
+            foreach (Step step in this.steps)
+            {
+                stringbuilder.Append($"{step.Quantity} de '{step.Input.Description}' " + 
+                $"usando '{step.Equipment.Description}' durante {step.Time}");
+            }
+            return stringbuilder.ToString();
         }
     }
 }
